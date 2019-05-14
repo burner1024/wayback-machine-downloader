@@ -209,7 +209,7 @@ class WaybackMachineDownloader
       threads << Thread.new do
         until file_queue.empty?
           file_remote_info = file_queue.pop(true) rescue nil
-          download_file(file_remote_info) if file_remote_info
+          download_file(file_remote_info) if file_remote_info[:file_id]
         end
       end
     end
